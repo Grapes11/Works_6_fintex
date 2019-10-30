@@ -1,21 +1,33 @@
-package com.company;
 
+package com.company;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public final class Main {
+    /**
+     * Приватный конструктор.
+     */
+    private Main() { }
 
-    public static void main(String[] args) throws IOException {
+    /**
+     * @param args
+     * Главный метод, в пишется основной код.
+     */
+    public static void main(final String[] args) {
         String newLine = System.getProperty("line.separator");
-        try{
-             WorksWithFile.loadFile();
+        try {
+            WorksWithFile.loadFile();
             label:
             while (true) {
-                System.out.println("Нажмите v, чтобы просмотрет контакты,"+newLine
-                        + "Нажмите r, чтобы добавить новый контакт"+ newLine
-                        + "Чтобы закрыть приложение введите off");
-                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                System.out.println("Нажмите v, чтобы"
+                        + " просмотреть контакты," + newLine
+                        + "Нажмите r, чтобы добавить "
+                        + "новый контакт"
+                        + newLine
+                        + "Чтобы закрыть приложение "
+                        + "введите off");
+                BufferedReader reader
+                        = new BufferedReader(new InputStreamReader(System.in));
                 String text = reader.readLine();
                 switch (text) {
                     case "v":
@@ -31,11 +43,9 @@ public class Main {
                         break;
                 }
             }
-
-        } catch(Exception e){
-            e.printStackTrace();
-        } finally {
             WorksWithFile.updateFile();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

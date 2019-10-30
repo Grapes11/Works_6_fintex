@@ -1,8 +1,21 @@
+/**
+ * Данный класс реализует мое исключение
+ *
+ * @version 28.10.2019
+ *
+ * @author Никита виноградов
+ */
 package com.company;
 
-public class MyException extends Exception {
+class MyException extends Exception {
 
-    MyException(){
-
+    /**
+     * Мое исключение для случая,
+     * когда контакт, который
+     * хотят добавить
+     * в телефонную книгу, уже есть.
+     */
+    MyException() {
+        super("Такой контакт уже существует");
     }
 }
